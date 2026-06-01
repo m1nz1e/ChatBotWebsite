@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Support Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/style.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+        
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .feature {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .feature span {
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        .chat-hint {
+            background: #e8f4fd;
+            border: 2px dashed #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            color: #555;
+        }
+        
+        .chat-hint strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .examples {
+            text-align: left;
+            margin-top: 10px;
+        }
+        
+        .examples code {
+            background: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: block;
+            margin: 5px 0;
+            font-size: 0.85rem;
+            color: #333;
+        }
+        
+        footer {
+            margin-top: 30px;
+            color: #999;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎓 Student Support Chatbot</h1>
+        <p class="subtitle">Ask questions about student data, grades, performance metrics, and get instant insights with visualizations.</p>
+        
+        <div class="features">
+            <div class="feature">
+                <strong>📊 Data Queries</strong>
+                <span>Ask about grades, averages, and performance</span>
+            </div>
+            <div class="feature">
+                <strong>📈 Auto Charts</strong>
+                <span>Visualizations generated automatically</span>
+            </div>
+            <div class="feature">
+                <strong>💬 Natural Language</strong>
+                <span>Ask questions in plain English</span>
+            </div>
+            <div class="feature">
+                <strong>⚡ Real-time</strong>
+                <span>Instant responses powered by RAG</span>
+            </div>
+        </div>
+        
+        <div class="chat-hint">
+            <strong>💡 Try asking:</strong>
+            <div class="examples">
+                <code>"What is the average math score for Class A?"</code>
+                <code>"Show me the top performing students"</code>
+                <code>"Compare grades between classes"</code>
+                <code>"What's the overall pass rate?"</code>
+            </div>
+        </div>
+        
+        <footer>
+            Click the chat button in the bottom-right corner to start →
+        </footer>
+    </div>
+    
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/chat.bundle.es.js';
+
+        createChat({
+            webhookUrl: 'https://n8n1.m1nz.org/webhook/student-chat',
+            mode: 'window',
+            target: '#n8n-chat',
+            showWelcomeScreen: true,
+            welcomeMessage: 'Hi! I\'m your Student Support assistant. Ask me anything about student data, grades, or performance metrics!',
+            theme: {
+                color: '#667eea',
+                gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+            },
+            metadata: {
+                userId: 'web_visitor_' + Date.now()
+            }
+        });
+    </script>
+</body>
+</html>

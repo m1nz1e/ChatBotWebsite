@@ -1,0 +1,15 @@
+# Cloudflare Pages configuration
+# Deploy with: wrangler pages deploy . --project-name=chatbot-website
+
+name = "chatbot-website"
+compatibility_date = "2024-01-01"
+
+[site]
+bucket = "."
+
+[build]
+command = "echo 'Static site - no build required'"
+
+[vars]
+# Environment variables (if needed)
+# API_URL = "https://n8n1.m1nz.org/webhook/student-chat"
